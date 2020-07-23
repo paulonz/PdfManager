@@ -1,8 +1,8 @@
 # PdfManager
-
-## To Run
 ```
+cd PdfManager
 dotnet restore
 dotnet build
-dotnet .\PdfManager\bin\Debug\netcoreapp3.1\PdfManager.dll
+dotnet run
 ```
+.net core 3.1
