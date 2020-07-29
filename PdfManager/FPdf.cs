@@ -322,7 +322,7 @@ namespace PdfManager
 
                                 if (registros.Any(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1))
                                 {
-                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(",", StringSplitOptions.RemoveEmptyEntries);
+                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(";", StringSplitOptions.RemoveEmptyEntries);
                                     if (linha != null && linha.Any())
                                     {
                                         PdfSharpCore.Pdf.Security.PdfSecuritySettings securitySettings = item.Value.SecuritySettings;
@@ -371,7 +371,7 @@ namespace PdfManager
 
                                 if (registros.Any(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1))
                                 {
-                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(",", StringSplitOptions.RemoveEmptyEntries);
+                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(";", StringSplitOptions.RemoveEmptyEntries);
                                     if (linha != null && linha.Any())
                                     {
                                         string registro = linha[3];
