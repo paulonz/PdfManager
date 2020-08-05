@@ -251,6 +251,8 @@ namespace PdfManager
                 {
                     string[] registros = System.IO.File.ReadAllLines(txtAdditionalInfoCSVFile.Text);
 
+                    string csvSeparator = CheckCSVSeparator(registros);
+
                     if (registros != null && registros.Any())
                     {
                         foreach (KeyValuePair<string, PdfDocument> item in PdfDocuments)
@@ -264,7 +266,7 @@ namespace PdfManager
 
                                 if (registros.Any(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1))
                                 {
-                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(";", StringSplitOptions.RemoveEmptyEntries);
+                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(csvSeparator, StringSplitOptions.RemoveEmptyEntries);
                                     if (linha != null && linha.Any())
                                     {
                                         string registro = linha[3];
@@ -309,6 +311,8 @@ namespace PdfManager
                 {
                     string[] registros = System.IO.File.ReadAllLines(txtAdditionalInfoCSVFile.Text);
 
+                    string csvSeparator = CheckCSVSeparator(registros);
+
                     if (registros != null && registros.Any())
                     {
                         foreach (KeyValuePair<string, PdfDocument> item in PdfDocuments)
@@ -322,7 +326,7 @@ namespace PdfManager
 
                                 if (registros.Any(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1))
                                 {
-                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(";", StringSplitOptions.RemoveEmptyEntries);
+                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(csvSeparator, StringSplitOptions.RemoveEmptyEntries);
                                     if (linha != null && linha.Any())
                                     {
                                         PdfSharpCore.Pdf.Security.PdfSecuritySettings securitySettings = item.Value.SecuritySettings;
@@ -356,6 +360,8 @@ namespace PdfManager
                 {
                     string[] registros = System.IO.File.ReadAllLines(txtAdditionalInfoCSVFile.Text);
 
+                    string csvSeparator = CheckCSVSeparator(registros);
+
                     if (registros != null && registros.Any())
                     {
                         Dictionary<string, PdfDocument> newList = new Dictionary<string, PdfDocument>();
@@ -371,7 +377,7 @@ namespace PdfManager
 
                                 if (registros.Any(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1))
                                 {
-                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(";", StringSplitOptions.RemoveEmptyEntries);
+                                    string[] linha = registros.First(w => w.IndexOf(arquivo, StringComparison.InvariantCultureIgnoreCase) > -1).Split(csvSeparator, StringSplitOptions.RemoveEmptyEntries);
                                     if (linha != null && linha.Any())
                                     {
                                         string registro = linha[3];
@@ -427,6 +433,28 @@ namespace PdfManager
                     }
                 }
             }
+        }
+
+        private static string CheckCSVSeparator(string[] lines)
+        {
+            if (lines != null)
+            {
+                int first = 0;
+                int second = 0;
+
+                foreach (string item in lines)
+                {
+                    first += item.Count(w => w == ';');
+                    second += item.Count(w => w == ',');
+                }
+
+                if (second > first)
+                {
+                    return ",";
+                }
+            }
+
+            return ";";
         }
     }
 }
