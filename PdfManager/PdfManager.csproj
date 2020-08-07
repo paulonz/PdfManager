@@ -37,6 +37,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Modelo Imagem de fundo.jpeg">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Modelo Livro Registro.csv">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
