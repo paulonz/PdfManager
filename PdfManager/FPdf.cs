@@ -408,7 +408,7 @@ namespace PdfManager
             {
                 foreach (KeyValuePair<string, PdfDocument> item in PdfDocuments)
                 {
-                    item.Value.Save($"{txtTargetFolder.Text}\\{item.Key}.pdf");
+                    item.Value.Save($"{txtTargetFolder.Text}\\{item.Key}");
                 }
 
                 if (MessageBox.Show("Processamento finalizado com sucesso", "Sucesso", MessageBoxButtons.OK, MessageBoxIcon.Information) == DialogResult.OK)
