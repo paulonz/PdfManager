@@ -231,8 +231,9 @@ namespace PdfManager
                     {
                         if (item.Value.PageCount > 0)
                         {
+                            XGraphicsPdfPageOptions position = cbApplyFrontImage.Checked ? XGraphicsPdfPageOptions.Append : XGraphicsPdfPageOptions.Prepend;
                             PdfPage page = item.Value.Pages[0];
-                            XGraphics gfx = XGraphics.FromPdfPage(page, XGraphicsPdfPageOptions.Prepend);
+                            XGraphics gfx = XGraphics.FromPdfPage(page, position);
                             XImage image = XImage.FromFile(txtBgImage.Text);
                             gfx.DrawImage(image, 0, 0, page.Width.Point, page.Height.Point);
                         }

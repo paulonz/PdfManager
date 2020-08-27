@@ -53,6 +53,7 @@
             this.gbApplyBgImage = new System.Windows.Forms.GroupBox();
             this.pnApplyBgImage = new System.Windows.Forms.Panel();
             this.panel01 = new System.Windows.Forms.Panel();
+            this.cbApplyFrontImage = new System.Windows.Forms.CheckBox();
             this.txtBgImage = new System.Windows.Forms.TextBox();
             this.lbImageFile = new System.Windows.Forms.Label();
             this.cbApplyBgImage = new System.Windows.Forms.CheckBox();
@@ -105,7 +106,7 @@
             this.panel1.Controls.Add(this.button2);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 517);
+            this.panel1.Location = new System.Drawing.Point(0, 538);
             this.panel1.Name = "panel1";
             this.panel1.Padding = new System.Windows.Forms.Padding(8);
             this.panel1.Size = new System.Drawing.Size(641, 50);
@@ -145,7 +146,7 @@
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
             this.panel2.Padding = new System.Windows.Forms.Padding(8);
-            this.panel2.Size = new System.Drawing.Size(641, 517);
+            this.panel2.Size = new System.Drawing.Size(641, 538);
             this.panel2.TabIndex = 0;
             // 
             // gbProtectFile
@@ -153,7 +154,7 @@
             this.gbProtectFile.Controls.Add(this.pnRenameFiles);
             this.gbProtectFile.Controls.Add(this.cbRenameFile);
             this.gbProtectFile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbProtectFile.Location = new System.Drawing.Point(8, 424);
+            this.gbProtectFile.Location = new System.Drawing.Point(8, 444);
             this.gbProtectFile.Name = "gbProtectFile";
             this.gbProtectFile.Padding = new System.Windows.Forms.Padding(8, 2, 8, 8);
             this.gbProtectFile.Size = new System.Drawing.Size(625, 88);
@@ -218,7 +219,7 @@
             this.gbProtectedFile.Controls.Add(this.pnProtectFile);
             this.gbProtectedFile.Controls.Add(this.cbProtectFile);
             this.gbProtectedFile.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbProtectedFile.Location = new System.Drawing.Point(8, 336);
+            this.gbProtectedFile.Location = new System.Drawing.Point(8, 356);
             this.gbProtectedFile.Name = "gbProtectedFile";
             this.gbProtectedFile.Padding = new System.Windows.Forms.Padding(8, 2, 8, 8);
             this.gbProtectedFile.Size = new System.Drawing.Size(625, 88);
@@ -283,7 +284,7 @@
             this.gbApplyAdditionalInfo.Controls.Add(this.pnAdditionalInfo);
             this.gbApplyAdditionalInfo.Controls.Add(this.cbApplyAdditionalInfo);
             this.gbApplyAdditionalInfo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.gbApplyAdditionalInfo.Location = new System.Drawing.Point(8, 248);
+            this.gbApplyAdditionalInfo.Location = new System.Drawing.Point(8, 268);
             this.gbApplyAdditionalInfo.Name = "gbApplyAdditionalInfo";
             this.gbApplyAdditionalInfo.Padding = new System.Windows.Forms.Padding(8, 2, 8, 8);
             this.gbApplyAdditionalInfo.Size = new System.Drawing.Size(625, 88);
@@ -351,7 +352,7 @@
             this.gbApplyBgImage.Location = new System.Drawing.Point(8, 160);
             this.gbApplyBgImage.Name = "gbApplyBgImage";
             this.gbApplyBgImage.Padding = new System.Windows.Forms.Padding(8, 2, 8, 8);
-            this.gbApplyBgImage.Size = new System.Drawing.Size(625, 88);
+            this.gbApplyBgImage.Size = new System.Drawing.Size(625, 108);
             this.gbApplyBgImage.TabIndex = 0;
             this.gbApplyBgImage.TabStop = false;
             this.gbApplyBgImage.Text = "03) Aplicar imagem de fundo na primeira página";
@@ -363,18 +364,30 @@
             this.pnApplyBgImage.Enabled = false;
             this.pnApplyBgImage.Location = new System.Drawing.Point(8, 42);
             this.pnApplyBgImage.Name = "pnApplyBgImage";
-            this.pnApplyBgImage.Size = new System.Drawing.Size(609, 38);
+            this.pnApplyBgImage.Size = new System.Drawing.Size(609, 58);
             this.pnApplyBgImage.TabIndex = 1;
             // 
             // panel01
             // 
+            this.panel01.Controls.Add(this.cbApplyFrontImage);
             this.panel01.Controls.Add(this.txtBgImage);
             this.panel01.Controls.Add(this.lbImageFile);
             this.panel01.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel01.Location = new System.Drawing.Point(0, 0);
             this.panel01.Name = "panel01";
-            this.panel01.Size = new System.Drawing.Size(609, 38);
+            this.panel01.Size = new System.Drawing.Size(609, 58);
             this.panel01.TabIndex = 0;
+            // 
+            // cbApplyFrontImage
+            // 
+            this.cbApplyFrontImage.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cbApplyFrontImage.Location = new System.Drawing.Point(0, 38);
+            this.cbApplyFrontImage.Name = "cbApplyFrontImage";
+            this.cbApplyFrontImage.Size = new System.Drawing.Size(609, 24);
+            this.cbApplyFrontImage.TabIndex = 0;
+            this.cbApplyFrontImage.Text = "Aplicar na frente?";
+            this.cbApplyFrontImage.UseVisualStyleBackColor = true;
+            this.cbApplyFrontImage.CheckedChanged += new System.EventHandler(this.CheckedChanged);
             // 
             // txtBgImage
             // 
@@ -587,7 +600,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(641, 567);
+            this.ClientSize = new System.Drawing.Size(641, 588);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.MaximizeBox = false;
@@ -678,5 +691,6 @@
         private System.Windows.Forms.Label lblProtectFile;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog;
         private System.Windows.Forms.OpenFileDialog openFileDialog;
+        private System.Windows.Forms.CheckBox cbApplyFrontImage;
     }
 }
